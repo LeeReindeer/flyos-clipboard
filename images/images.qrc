@@ -11,5 +11,7 @@
         <file>trash_white.svg</file>
         <file>copy_drak.svg</file>
         <file>copy_white.svg</file>
+        <file>star_dark.svg</file>
+        <file>star_fill.svg</file>
     </qresource>
 </RCC>

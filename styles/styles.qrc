@@ -6,5 +6,7 @@
         <file>settingsButton.css</file>
         <file>clearAllButton.css</file>
         <file>copyButton.css</file>
+        <file>starButton.css</file>
+        <file>starFillButton.css</file>
     </qresource>
 </RCC>

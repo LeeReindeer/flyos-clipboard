@@ -24,6 +24,7 @@ private:
     QVBoxLayout *mainLayout;
 
     bool isCopy = false;
+    bool isStar = false;
 
 private slots:
 
@@ -31,6 +32,7 @@ private slots:
 
     void setIsCopy(bool isCopy);
 
+    bool changeStarStatus(ListItem *item);
 
 signals:
 

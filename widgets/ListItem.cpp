@@ -34,19 +34,25 @@ ListItem::ListItem(QString text, QWidget *parent) :
     toolLayout->setSpacing(6);
     toolLayout->setAlignment(Qt::AlignRight);
 
-    QPushButton *copyButton = new QPushButton(this);
+    copyButton = new QPushButton(this);
     copyButton->setFixedSize(16, 16);
     copyButton->setStyleSheet(ReadFile(":/styles/copyButton.css"));
 
-    QPushButton *closeButton = new QPushButton(this);
+    closeButton = new QPushButton(this);
     closeButton->setFixedSize(16, 16);
     closeButton->setStyleSheet(ReadFile(":/styles/closeButton.css"));
 
+    starButton = new QPushButton(this);
+    starButton->setFixedSize(16, 16);
+    starButton->setStyleSheet(ReadFile(":/styles/starButton.css"));
+
     toolLayout->addWidget(copyButton);
     toolLayout->addWidget(closeButton);
+    toolLayout->addWidget(starButton);
 
     connect(copyButton, &QPushButton::clicked, this, &ListItem::copyButtonClick);
     connect(closeButton, &QPushButton::clicked, this, &ListItem::closeButtonClick);
+    connect(starButton, &QPushButton::clicked, this, &ListItem::starButtonClick);
 }
 
 
@@ -59,6 +65,14 @@ void ListItem::closeButtonClick() {
     emit removeItem(this);
 }
 
+void ListItem::starButtonClick() {
+    bool isStar = emit changeStarStatus(this);
+    if (isStar) {
+        starButton->setStyleSheet(ReadFile(":/styles/starFillButton.css"));
+    } else {
+        starButton->setStyleSheet(ReadFile(":/styles/starButton.css"));
+    }
+}
 
 void ListItem::enterEvent(QEvent *event) {
     QWidget::enterEvent(event);
